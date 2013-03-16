@@ -7,18 +7,18 @@ class ReplaceSubstring
     {
         Console.WriteLine(@"Change ""InputFile.txt"" or press Enter");
         Console.ReadLine();
-        StreamReader ReadFromFile = new StreamReader("InputFile.txt");
-        StreamWriter WriteTheResults = new StreamWriter("result.txt");
-        using (ReadFromFile)
+        StreamReader readFromFile = new StreamReader("InputFile.txt");
+        StreamWriter writeTheResults = new StreamWriter("result.txt");
+        using (readFromFile)
         {
-            using (WriteTheResults)
+            using (writeTheResults)
             {
-                string line = ReadFromFile.ReadLine();
+                string line = readFromFile.ReadLine();
                 while (line != null)
                 {
-                    string NewLine = line.Replace("start", "finish");
-                    WriteTheResults.WriteLine(NewLine);
-                    line = ReadFromFile.ReadLine();
+                    string newLine = line.Replace("start", "finish");
+                    writeTheResults.WriteLine(newLine);
+                    line = readFromFile.ReadLine();
                 }
             }
         }

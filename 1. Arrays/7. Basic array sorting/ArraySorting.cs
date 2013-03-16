@@ -2,86 +2,86 @@
 
 class ArraySorting
 {
-    static int ReadInts(string Value)                                               //Reads integers from console.
+    static int ReadInts(string value)                                               //Reads integers from console.
     {
         while (true)                                    
         {                                               
-            int Integer;
-            bool Result = int.TryParse(Value, out Integer);
-            if (Result == true)
+            int integer;
+            bool result = int.TryParse(value, out integer);
+            if (result == true)
             {
-                return Integer;
+                return integer;
             }
             else
             {
-                Console.Write(@"""{0}"" is not an integer. Try again: ", Value);
-                Value = Console.ReadLine();
+                Console.Write(@"""{0}"" is not an integer. Try again: ", value);
+                value = Console.ReadLine();
             }
         }
     }
 
-    private static void PrintOneDimArray(int N, int[] arr)                          //Prints array
+    private static void PrintOneDimArray(int n, int[] arr)                          //Prints array
     {
-        for (int index = 0; index < N; index++)
+        for (int index = 0; index < n; index++)
         {
             Console.Write(arr[index] + " ");
         }
     }
 
-    private static int MaxInOneDimArray(int N, int[] Array)                         //Finds max value in array.
+    private static int MaxInOneDimArray(int n, int[] array)                         //Finds max value in array.
     {
-        int Max = Array[0];
+        int max = array[0];
 
-        for (int i = 0; i < N; i++)
+        for (int i = 0; i < n; i++)
         {
-            if (Max < Array[i])
+            if (max < array[i])
             {
-                Max = Array[i];
+                max = array[i];
             }
         }
-        return Max;
+        return max;
     }
 
-    private static int MinInOneDimArray(int N, int M, int[] Array)                  //Finds next minimal value
+    private static int MinInOneDimArray(int n, int m, int[] array)                  //Finds next minimal value
     {
-        int Min = M;
-        int Max = M;
+        int min = m;
+        int max = m;
         int index = 0;
 
-        for (int i = 0; i < N; i++)
+        for (int i = 0; i < n; i++)
         {
-            if (Min >= Array[i])
+            if (min >= array[i])
             {
-                Min = Array[i];
+                min = array[i];
                 index = i;
             }
         }
-        Array[index] = Max;
-        return Min;
+        array[index] = max;
+        return min;
     }
 
     static void Main(string[] args)
     {
-        int N = -1;
-        while (N <= 0)
+        int n = -1;
+        while (n <= 0)
         {
             Console.Write("Input N: ");
-            N = ReadInts(Console.ReadLine());
+            n = ReadInts(Console.ReadLine());
         }
-        int[] Array = new int[N];
-        for (int index = 0; index < N; index++)
+        int[] array = new int[n];
+        for (int index = 0; index < n; index++)
         {
             Console.Write("Input Array[{0}]: ", index);
-            Array[index] = ReadInts(Console.ReadLine());
+            array[index] = ReadInts(Console.ReadLine());
         }
-        int[] SortedArray = new int[N];
+        int[] sortedArray = new int[n];
 
-        int Max = MaxInOneDimArray(N, Array);
+        int max = MaxInOneDimArray(n, array);
 
-        for (int index = 0; index < N; index++)
+        for (int index = 0; index < n; index++)
         {
-            SortedArray[index] = MinInOneDimArray(N, Max, Array);
+            sortedArray[index] = MinInOneDimArray(n, max, array);
         }
-        PrintOneDimArray(N, SortedArray);
+        PrintOneDimArray(n, sortedArray);
     }
 }
