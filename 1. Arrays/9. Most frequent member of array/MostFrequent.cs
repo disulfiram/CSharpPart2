@@ -2,46 +2,46 @@
 
 class MostFrequent
 {
-    static int ReadInts(string Value)                                                                   //Reads integers from console.
+    static int ReadInts(string value)                                                                   //Reads integers from console.
     {
         while (true)
         {
-            int Integer;
-            bool Result = int.TryParse(Value, out Integer);
-            if (Result == true)
+            int integer;
+            bool result = int.TryParse(value, out integer);
+            if (result == true)
             {
-                return Integer;
+                return integer;
             }
             else
             {
-                Console.Write(@"""{0}"" is not an integer. Try again: ", Value);
-                Value = Console.ReadLine();
+                Console.Write(@"""{0}"" is not an integer. Try again: ", value);
+                value = Console.ReadLine();
             }
         }
     }
 
     static void Main(string[] args)
     {
-        int N = -1;
-        while (N <= 0)
+        int n = -1;
+        while (n <= 0)
         {
             Console.Write("Input size of array: ");
-            N = ReadInts(Console.ReadLine());
+            n = ReadInts(Console.ReadLine());
         }
-        int[] Array = new int[N];
-        for (int index = 0; index < Array.Length; index++)
+        int[] array = new int[n];
+        for (int index = 0; index < array.Length; index++)
         {
             Console.Write("Input Array[{0}]: ", index);
-            Array[index] = ReadInts(Console.ReadLine());
+            array[index] = ReadInts(Console.ReadLine());
         }
         int counter = 0;
         int countOfSameElements = 0;
         int element = 0;
-        for (int index = 0; index < Array.Length; index++)
+        for (int index = 0; index < array.Length; index++)
         {
-            foreach (var number in Array)
+            foreach (var number in array)
             {
-                if (number == Array[index])
+                if (number == array[index])
                 {
                     counter += 1;
                 }
@@ -49,7 +49,7 @@ class MostFrequent
             if (countOfSameElements < counter)
             {
                 countOfSameElements = counter;
-                element = Array[index];
+                element = array[index];
             }
             counter = 0;
         }

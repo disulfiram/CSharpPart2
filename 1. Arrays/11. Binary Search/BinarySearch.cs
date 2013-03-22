@@ -1,84 +1,85 @@
 ﻿// I really don't think I got the point of this task!
+
 using System;
 
 class BinarySearch
 {
-    static int ReadInts(string Value)                                                           //Reads integers from console.
+    static int ReadInts(string value)                                                           //Reads integers from console.
     {
         while (true)
         {
-            int Integer;
-            bool Result = int.TryParse(Value, out Integer);
-            if (Result == true)
+            int integer;
+            bool result = int.TryParse(value, out integer);
+            if (result == true)
             {
-                return Integer;
+                return integer;
             }
             else
             {
-                Console.Write(@"""{0}"" is not an integer. Try again: ", Value);
-                Value = Console.ReadLine();
+                Console.Write(@"""{0}"" is not an integer. Try again: ", value);
+                value = Console.ReadLine();
             }
         }
     }
 
-    static int[] BinarySearchIndex(int Integer, int[] IntegerArray, int[] BinarySearchArray)    //Binary Search
+    static int[] BinarySearchIndex(int integer, int[] integerArray, int[] binarySearchArray)    //Binary Search
     {
-        if (Integer > IntegerArray[IntegerArray.Length-1] || Integer < IntegerArray[0])
+        if (integer > integerArray[integerArray.Length - 1] || integer < integerArray[0])
         {
-            BinarySearchArray[0] = -1;
-            return BinarySearchArray;
-            Console.WriteLine("{0} is out of range", Integer);
+            binarySearchArray[0] = -1;
+            Console.WriteLine("{0} is out of range", integer);
+            return binarySearchArray;
         }
-        if (Integer == IntegerArray[BinarySearchArray[2]])
+        if (integer == integerArray[binarySearchArray[2]])
         {
-            BinarySearchArray[0] = BinarySearchArray[2];    //int=mid
-            Console.WriteLine("{0} has in index {1} in the array.", Integer, BinarySearchArray[0]);
-            return BinarySearchArray;
+            binarySearchArray[0] = binarySearchArray[2];    //int=mid
+            Console.WriteLine("{0} has in index {1} in the array.", integer, binarySearchArray[0]);
+            return binarySearchArray;
         }
-        if (Integer > IntegerArray[BinarySearchArray[2]])   //int>mid
+        if (integer > integerArray[binarySearchArray[2]])   //int>mid
         {
-            BinarySearchArray[1] = BinarySearchArray[2];    //min=mid
-            BinarySearchArray[2] = (BinarySearchArray[1] + BinarySearchArray[3]) / 2;
-            return BinarySearchArray;
+            binarySearchArray[1] = binarySearchArray[2];    //min=mid
+            binarySearchArray[2] = (binarySearchArray[1] + binarySearchArray[3]) / 2;
+            return binarySearchArray;
         }
-        if (Integer < IntegerArray[BinarySearchArray[2]])   //int<mid
+        if (integer < integerArray[binarySearchArray[2]])   //int<mid
         {
-            BinarySearchArray[3] = BinarySearchArray[2];    //max=mid
-            BinarySearchArray[2] = (BinarySearchArray[1] + BinarySearchArray[3]) / 2;
-            return BinarySearchArray;
+            binarySearchArray[3] = binarySearchArray[2];    //max=mid
+            binarySearchArray[2] = (binarySearchArray[1] + binarySearchArray[3]) / 2;
+            return binarySearchArray;
         }
-        BinarySearchArray[0] = -1;
-        return BinarySearchArray;
+        binarySearchArray[0] = -1;
+        return binarySearchArray;
     }
 
     static void Main(string[] args)
     {
-        int N = -1;
-        while (N < 0)
+        int n = -1;
+        while (n < 0)
         {
             Console.Write("Input N: ");
-            N = ReadInts(Console.ReadLine());
+            n = ReadInts(Console.ReadLine());
         }
-        int[] IntegerArray = new int[N];
-        for (int index = 0; index < IntegerArray.Length; index++)
+        int[] integerArray = new int[n];
+        for (int index = 0; index < integerArray.Length; index++)
         {
             Console.Write("Input Array[{0}]: ", index);
-            IntegerArray[index] = ReadInts(Console.ReadLine());
+            integerArray[index] = ReadInts(Console.ReadLine());
         }
-        Array.Sort(IntegerArray);
+        Array.Sort(integerArray);
         Console.Write("Input integer to find the index of: ");
-        int Key = ReadInts(Console.ReadLine());
-        int[] BinarySearchArray = new int[4];
-        BinarySearchArray[0] = -2;          //used to find index of int
-        BinarySearchArray[1] = 0;           //min index
-        BinarySearchArray[2] = (N-1) / 2;   //mid index
-        BinarySearchArray[3] = N-1;         //max index
-        while (BinarySearchArray[0] < -1)
+        int key = ReadInts(Console.ReadLine());
+        int[] binarySearchArray = new int[4];
+        binarySearchArray[0] = -2;          //used to find index of int
+        binarySearchArray[1] = 0;           //min index
+        binarySearchArray[2] = (n - 1) / 2;   //mid index
+        binarySearchArray[3] = n - 1;         //max index
+        while (binarySearchArray[0] < -1)
         {
-            BinarySearchArray = BinarySearchIndex(Key, IntegerArray, BinarySearchArray);
-            if (BinarySearchArray[0] == -1)
+            binarySearchArray = BinarySearchIndex(key, integerArray, binarySearchArray);
+            if (binarySearchArray[0] == -1)
             {
-                Console.WriteLine("{0} out of range!", Key);
+                Console.WriteLine("{0} out of range!", key);
                 break;
             }
         }

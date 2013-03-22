@@ -6,41 +6,41 @@ class Sequence
     {
         int count = 1;
         int tempcount = 1;
-        int index = 0;
-        int N = 0;
+        int indexOfSequence = 0;
+        int n = 0;
         while (true)                                    //Will ask until successful parse
         {                                               //Array size
             Console.Write("Input array size: ");
-            string Value = Console.ReadLine();
-            bool Result = int.TryParse(Value, out N);
-            if (Result == true && N > 0)
+            string value = Console.ReadLine();
+            bool result = int.TryParse(value, out n);
+            if (result == true && n > 0)
             {
                 break;
             }
         }
-        int[] arr = new int[N];
-        for (int i = 0; i < N; i++)
+        int[] arr = new int[n];
+        for (int index = 0; index < n; index++)
         {
             while (true)
             {
-                Console.Write("Element with index {0} = ", i);
-                string Value = Console.ReadLine();
-                bool Result = int.TryParse(Value, out arr[i]);
-                if (Result == true)
+                Console.Write("Element with index {0} = ", index);
+                string value = Console.ReadLine();
+                bool result = int.TryParse(value, out arr[index]);
+                if (result == true)
                 {
                     break;
                 }
             }
         }
-        for (int i = 1; i < N; i++)
+        for (int index = 1; index < n; index++)
         {
-            if (arr[i] == arr[i - 1])
+            if (arr[index] == arr[index - 1])
             {
                 ++tempcount;
                 if (tempcount > count)
                 {
                     count = tempcount;      //Length of subarray
-                    index = i;              //Index of last int in subarray
+                    indexOfSequence = index;              //Index of last int in subarray
                 }
 
             }
@@ -52,7 +52,7 @@ class Sequence
         Console.Write("Sub array is: ");
         for (int i = 0; i < count; i++)
         {
-            Console.Write(arr[index] + " ");
+            Console.Write(arr[indexOfSequence] + " ");
         }
         Console.WriteLine();
     }

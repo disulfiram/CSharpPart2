@@ -5,7 +5,7 @@ class ArraySorting
     static int ReadInts(string value)                                               //Reads integers from console.
     {
         while (true)                                    
-        {                                               
+        { 
             int integer;
             bool result = int.TryParse(value, out integer);
             if (result == true)
