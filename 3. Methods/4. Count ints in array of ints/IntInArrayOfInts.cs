@@ -2,49 +2,49 @@
 
 class IntInArrayOfInts
 {
-    static int ReadInts(string Value)       //Reads integers from console.
+    static int ReadInts(string value)       //Reads integers from console.
     {
         while (true)
         {
-            int Integer;
-            bool Result = int.TryParse(Value, out Integer);
-            if (Result == true)
+            int integer;
+            bool result = int.TryParse(value, out integer);
+            if (result == true)
             {
-                return Integer;
+                return integer;
             }
             else
             {
-                Console.Write(@"""{0}"" is not an integer. Try again: ", Value);
-                Value = Console.ReadLine();
+                Console.Write(@"""{0}"" is not an integer. Try again: ", value);
+                value = Console.ReadLine();
             }
         }
     }
 
-    static void FindAndCountInArray(int K, int[] ArrayOfInts)
+    static void FindAndCountInArray(int numberK, int[] arrayOfInts)
     {
         int counter = 0;
-        for (int index = 0; index < ArrayOfInts.Length; index++)
+        for (int index = 0; index < arrayOfInts.Length; index++)
         {
-            if (ArrayOfInts[index] == K)
+            if (arrayOfInts[index] == numberK)
             {
                 counter += 1;
             }
         }
-        Console.WriteLine("{0} is present {1} times in the array.", K, counter);
+        Console.WriteLine("{0} is present {1} times in the array.", numberK, counter);
     }
 
     static void Main(string[] args)
     {
         Console.Write("Input size of array: ");
-        int N = ReadInts(Console.ReadLine());
-        int[] ArrayOfInts = new int[N];
-        for (int index = 0; index < N; index++)
+        int numberN = ReadInts(Console.ReadLine());
+        int[] arrayOfInts = new int[numberN];
+        for (int index = 0; index < numberN; index++)
         {
             Console.Write("Input element {0}: ", index);
-            ArrayOfInts[index] = ReadInts(Console.ReadLine());
+            arrayOfInts[index] = ReadInts(Console.ReadLine());
         }
         Console.Write("Input integer to look for in the array: ");
-        int K = ReadInts(Console.ReadLine());
-        FindAndCountInArray(K, ArrayOfInts);
+        int numberK = ReadInts(Console.ReadLine());
+        FindAndCountInArray(numberK, arrayOfInts);
     }
 }

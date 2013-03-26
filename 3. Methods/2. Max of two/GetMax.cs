@@ -2,43 +2,43 @@
 
 class GetMaximum
 {
-    static int ReadInts(string Value)       //Reads integers from console.
+    static int ReadInts(string value)       //Reads integers from console.
     {
         while (true)
         {
-            int Integer;
-            bool Result = int.TryParse(Value, out Integer);
-            if (Result == true)
+            int integer;
+            bool result = int.TryParse(value, out integer);
+            if (result == true)
             {
-                return Integer;
+                return integer;
             }
             else
             {
-                Console.Write(@"""{0}"" is not an integer. Try again: ", Value);
-                Value = Console.ReadLine();
+                Console.Write(@"""{0}"" is not an integer. Try again: ", value);
+                value = Console.ReadLine();
             }
         }
     }
 
-    static int GetMax(int Int1, int Int2)   //Finds bigger of two ints
+    static int GetMax(int int1, int int2)   //Finds bigger of two ints
     {
-        if (Int1>Int2)
+        if (int1>int2)
         {
-            return Int1;
+            return int1;
         }
         else
         {
-            return Int2;
+            return int2;
         }
     }
 
     static void Main(string[] args)
     {
         Console.WriteLine("Input 3 integers:");
-        int FirstInt = ReadInts(Console.ReadLine());
-        int SecondInt = ReadInts(Console.ReadLine());
-        int ThirdInt = ReadInts(Console.ReadLine());
+        int firstInt = ReadInts(Console.ReadLine());
+        int secondInt = ReadInts(Console.ReadLine());
+        int thirdInt = ReadInts(Console.ReadLine());
 
-        Console.WriteLine(GetMax(GetMax(FirstInt, SecondInt),ThirdInt));
+        Console.WriteLine(GetMax(GetMax(firstInt, secondInt),thirdInt));
     }
 }

@@ -2,31 +2,31 @@
 
 class Reverse
 {
-    static int ReadInts(string Value)       //Reads integers from console.
+    static int ReadInts(string value)       //Reads integers from console.
     {
         while (true)
         {
-            int Integer;
-            bool Result = int.TryParse(Value, out Integer);
-            if (Result == true)
+            int integer;
+            bool result = int.TryParse(value, out integer);
+            if (result == true)
             {
-                return Integer;
+                return integer;
             }
             else
             {
-                Console.Write(@"""{0}"" is not an integer. Try again: ", Value);
-                Value = Console.ReadLine();
+                Console.Write(@"""{0}"" is not an integer. Try again: ", value);
+                value = Console.ReadLine();
             }
         }
     }
 
-    static void PrintReversedInts(int N)
+    static void PrintReversedInts(int numberN)
     {
         Console.Write("The reversed number is: ");
-        while (N != 0)
+        while (numberN != 0)
         {
-            Console.Write(N % 10);
-            N /= 10;
+            Console.Write(numberN % 10);
+            numberN /= 10;
         }
         Console.WriteLine();
     }
@@ -34,7 +34,7 @@ class Reverse
     static void Main(string[] args)
     {
         Console.Write("Input integer: ");
-        int N = ReadInts(Console.ReadLine());
-        PrintReversedInts(N);
+        int numberN = ReadInts(Console.ReadLine());
+        PrintReversedInts(numberN);
     }
 }

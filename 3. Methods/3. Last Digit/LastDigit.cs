@@ -7,11 +7,11 @@ class LastDigit
     {
         while (true)
         {
-            int Integer;
-            bool result = int.TryParse(value, out Integer);
+            int integer;
+            bool result = int.TryParse(value, out integer);
             if (result == true)
             {
-                return Integer;
+                return integer;
             }
             else
             {
@@ -76,8 +76,8 @@ class LastDigit
     static void Main(string[] args)
     {
         Console.Write("Input an integer: ");
-        int N = ReadInts(Console.ReadLine());
-        string DigitName = FindDigit(N);
-        Console.WriteLine("Last digit is {0}", DigitName);
+        int numberN = ReadInts(Console.ReadLine());
+        string digitName = FindDigit(numberN);
+        Console.WriteLine("Last digit is {0}", digitName);
     }
 }

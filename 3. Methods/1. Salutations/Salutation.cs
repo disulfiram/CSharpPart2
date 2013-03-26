@@ -2,14 +2,14 @@
 
 class Salutation
 {
-    static void Salute(string Name)
+    static void Salute(string name)
     {
-        Console.WriteLine("Hello, {0}!", Name);
+        Console.WriteLine("Hello, {0}!", name);
     }
     static void Main(string[] args)
     {
         Console.WriteLine("What's your name? (smily face)");
-        string Name = Console.ReadLine();
-        Salute(Name);
+        string name = Console.ReadLine();
+        Salute(name);
     }
 }

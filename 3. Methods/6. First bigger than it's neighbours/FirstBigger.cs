@@ -2,45 +2,45 @@
 
 class FirstBigger
 {
-    static int ReadInts(string Value)       //Reads integers from console.
+    static int ReadInts(string value)       //Reads integers from console.
     {
         while (true)
         {
-            int Integer;
-            bool Result = int.TryParse(Value, out Integer);
-            if (Result == true)
+            int integer;
+            bool result = int.TryParse(value, out integer);
+            if (result == true)
             {
-                return Integer;
+                return integer;
             }
             else
             {
-                Console.Write(@"""{0}"" is not an integer. Try again: ", Value);
-                Value = Console.ReadLine();
+                Console.Write(@"""{0}"" is not an integer. Try again: ", value);
+                value = Console.ReadLine();
             }
         }
     }
 
-    static int CheckIfGrater(int[] ArrayOfInts)
+    static int CheckIfGrater(int[] arrayOfInts)
     {
-        for (int index = 0; index < ArrayOfInts.Length; index++)
+        for (int index = 0; index < arrayOfInts.Length; index++)
         {
             if (index == 0)
             {
-                if (ArrayOfInts[index] > ArrayOfInts[index + 1])
+                if (arrayOfInts[index] > arrayOfInts[index + 1])
                 {
                     return index;
                 }
             }
-            if (index == ArrayOfInts.Length - 1)
+            if (index == arrayOfInts.Length - 1)
             {
-                if (ArrayOfInts[index] > ArrayOfInts[index - 1])
+                if (arrayOfInts[index] > arrayOfInts[index - 1])
                 {
                     return index;
                 }
             }
             else
             {
-                if (ArrayOfInts[index] > ArrayOfInts[index + 1] && ArrayOfInts[index] > ArrayOfInts[index - 1])
+                if (arrayOfInts[index] > arrayOfInts[index + 1] && arrayOfInts[index] > arrayOfInts[index - 1])
                 {
                     return index;
                 }
@@ -52,17 +52,17 @@ class FirstBigger
     static void Main(string[] args)
     {
         Console.Write("Input size of array: ");
-        int N = ReadInts(Console.ReadLine());
-        int[] ArrayOfInts = new int[N];
-        for (int index = 0; index < N; index++)
+        int numberN = ReadInts(Console.ReadLine());
+        int[] arrayOfInts = new int[numberN];
+        for (int index = 0; index < numberN; index++)
         {
             Console.Write("Input element {0}: ", index);
-            ArrayOfInts[index] = ReadInts(Console.ReadLine());
+            arrayOfInts[index] = ReadInts(Console.ReadLine());
         }
-        int IndexOfInteger = CheckIfGrater(ArrayOfInts);
-        if (IndexOfInteger >-1)
+        int indexOfInteger = CheckIfGrater(arrayOfInts);
+        if (indexOfInteger >-1)
         {
-            Console.WriteLine("{0} is the first in the array grater than it's neighbours.", ArrayOfInts[IndexOfInteger]);
+            Console.WriteLine("{0} is the first in the array grater than it's neighbours.", arrayOfInts[indexOfInteger]);
         }
         else
         {

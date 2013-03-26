@@ -2,77 +2,77 @@
 
 class FirstBigger
 {
-    static int ReadInts(string Value)       //Reads integers from console.
+    static int ReadInts(string value)       //Reads integers from console.
     {
         while (true)
         {
-            int Integer;
-            bool Result = int.TryParse(Value, out Integer);
-            if (Result == true)
+            int integer;
+            bool result = int.TryParse(value, out integer);
+            if (result == true)
             {
-                return Integer;
+                return integer;
             }
             else
             {
-                Console.Write(@"""{0}"" is not an integer. Try again: ", Value);
-                Value = Console.ReadLine();
+                Console.Write(@"""{0}"" is not an integer. Try again: ", value);
+                value = Console.ReadLine();
             }
         }
     }
 
-    static bool CheckIfGrater(int K, int[] ArrayOfInts)
+    static bool CheckIfGrater(int numberK, int[] arrayOfInts)
     {
-        bool Bigger = false;
-        if (K == 0)
+        bool bigger = false;
+        if (numberK == 0)
         {
-            if (ArrayOfInts[0] > ArrayOfInts[K + 1])
+            if (arrayOfInts[0] > arrayOfInts[numberK + 1])
             {
-                Bigger = true;
-                return Bigger;
+                bigger = true;
+                return bigger;
             }
         }
-        if (K == ArrayOfInts.Length - 1)
+        if (numberK == arrayOfInts.Length - 1)
         {
-            if (ArrayOfInts[K] > ArrayOfInts[K - 1])
+            if (arrayOfInts[numberK] > arrayOfInts[numberK - 1])
             {
-                Bigger = true;
-                return Bigger;
+                bigger = true;
+                return bigger;
             }
         }
         else
         {
-            if (ArrayOfInts[K] > ArrayOfInts[K + 1] && ArrayOfInts[K] > ArrayOfInts[K - 1])
+            if (arrayOfInts[numberK] > arrayOfInts[numberK + 1] && arrayOfInts[numberK] > arrayOfInts[numberK - 1])
             {
-                Bigger = true;
-                return Bigger;
+                bigger = true;
+                return bigger;
             }
         }
-        return Bigger;
+        return bigger;
     }
 
     static void Main(string[] args)
     {
         Console.Write("Input size of array: ");
-        int N = ReadInts(Console.ReadLine());
-        int[] ArrayOfInts = new int[N];
-        for (int index = 0; index < N; index++)
+        int numberN = ReadInts(Console.ReadLine());
+        int[] arrayOfInts = new int[numberN];
+        for (int index = 0; index < numberN; index++)
         {
             Console.Write("Input element {0}: ", index);
-            ArrayOfInts[index] = ReadInts(Console.ReadLine());
+            arrayOfInts[index] = ReadInts(Console.ReadLine());
         }
-        int IndexOfInteger = -1;
-        for (int index = 0; index < N; index++)
+        int indexOfInteger = -1;
+        for (int index = 0; index < numberN; index++)
         {
-            bool IsBigger = CheckIfGrater(index, ArrayOfInts);
-            if (IsBigger == true)
+            bool isBigger = CheckIfGrater(index, arrayOfInts);
+            if (isBigger == true)
             {
-                IndexOfInteger = index;
+                indexOfInteger = index;
                 break;
             }
         }
-        if (IndexOfInteger > -1)
+        if (indexOfInteger > -1)
         {
-            Console.WriteLine("{0} is the first in the array grater than it's neighbours.", ArrayOfInts[IndexOfInteger]);
+            Console.WriteLine("{0} is the first in the array grater than it's neighbours.", arrayOfInts[indexOfInteger]);
         }
         else
         {
