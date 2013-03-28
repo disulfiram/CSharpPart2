@@ -5,66 +5,66 @@ class AddingIntsUsingArrays
 {
     static List<byte> ReadBytes()       //Reads integers from console.
     {
-        List<byte> Number = new List<byte>();
+        List<byte> number = new List<byte>();
         int index = 0;
 
         while (true)
         {
-            byte Integer;
-            string Value = Console.ReadLine();
-            bool Result = byte.TryParse(Value, out Integer);
-            if (Result == true && Integer < 10)
+            byte integer;
+            string value = Console.ReadLine();
+            bool result = byte.TryParse(value, out integer);
+            if (result == true && integer < 10)
             {
-                Number.Add(Integer);
+                number.Add(integer);
                 index++;
             }
-            else if (Value == "")
+            else if (value == "")
             {
-                return Number;
+                return number;
             }
             else
             {
-                Console.Write(@"""{0}"" is not a single digit. Try again: ", Value);
-                Value = Console.ReadLine();
+                Console.Write(@"""{0}"" is not a single digit. Try again: ", value);
+                value = Console.ReadLine();
             }
         }
     }
 
-    static List<byte> AddNumbers(List<byte> FirstNumber, List<byte> SecondNumber)
+    static List<byte> AddNumbers(List<byte> firstNumber, List<byte> secondNumber)
     {
-        List<byte> Sum = new List<byte>();
+        List<byte> sum = new List<byte>();
         int length;
         byte reminder = 0;
-        if (FirstNumber.Count > SecondNumber.Count)
+        if (firstNumber.Count > secondNumber.Count)
         {
-            length = FirstNumber.Count;
+            length = firstNumber.Count;
         }
         else
         {
-            length = SecondNumber.Count;
+            length = secondNumber.Count;
         }
         for (int index = 0; index <= length; index++)
         {
             if (index < length)
             {
-                byte Sume = (byte)((FirstNumber[index] + SecondNumber[index] + reminder) % 10);
-                Sum.Add(Sume);
-                reminder = (byte)((FirstNumber[index] + SecondNumber[index] + reminder) / 10);
+                byte sume = (byte)((firstNumber[index] + secondNumber[index] + reminder) % 10);
+                sum.Add(sume);
+                reminder = (byte)((firstNumber[index] + secondNumber[index] + reminder) / 10);
             }
             else
             {
-                byte Sume = (byte)(reminder % 10);
-                Sum.Add(Sume);
+                byte sume = (byte)(reminder % 10);
+                sum.Add(sume);
             }
         }
-        return Sum;
+        return sum;
     }
 
-    static void PrintList(List<byte> Sum)
+    static void PrintList(List<byte> sum)
     {
-        for (int index = Sum.Count - 1; index >= 0; index--)
+        for (int index = sum.Count - 1; index >= 0; index--)
         {
-            Console.Write(Sum[index]);
+            Console.Write(sum[index]);
         }
     }
 
@@ -72,11 +72,11 @@ class AddingIntsUsingArrays
     {
         Console.WriteLine("Input is made single digit at a line. Leave empty line to go to next number.");
         Console.WriteLine("Input digits of first number:");
-        List<byte> FirstNumber = ReadBytes();
+        List<byte> firstNumber = ReadBytes();
         Console.WriteLine("Input digits of second number:");
-        List<byte> SecondNumber = ReadBytes();
-        List<byte> Sum = AddNumbers(FirstNumber, SecondNumber);
-        PrintList(Sum);
+        List<byte> secondNumber = ReadBytes();
+        List<byte> sum = AddNumbers(firstNumber, secondNumber);
+        PrintList(sum);
     }
 }
 
