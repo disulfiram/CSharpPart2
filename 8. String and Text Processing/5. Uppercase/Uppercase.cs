@@ -1,4 +1,7 @@
-﻿using System;
+﻿//You are given a text. Write a program that changes the text in all regions surrounded 
+//by the tags <upcase> and </upcase> to uppercase. The tags cannot be nested. 
+
+using System;
 
 class Uppercase
 {
