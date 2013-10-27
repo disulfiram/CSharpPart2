@@ -9,7 +9,7 @@ class Concat
         string file1Name = Console.ReadLine();
         Console.Write(@"Input second file name(or use default ""second.txt""): ");
         string file2Name = Console.ReadLine();
-        string NewFile = "NewFile.txt";
+        string newFileName = "NewFile.txt";
         StreamWriter ConcatFiles = new StreamWriter(NewFile);
         using (ConcatFiles)
         {
